@@ -1,23 +1,23 @@
 
-// old namespace
+// plain old javascript object
 var select = {};
 
 
 
 
 /**
- * [createSelectBoxFragment description]
+ * 
  * @todo  refactor
- * @param  {String}       name [description]
- * @param  {Function}     fn   [description]
- * @return {Node}              [description]
+ * @param  {String}       name 
+ * @param  {Function}     fn  
+ * @return {Node}              
  */
-select.createSelectBoxFragment = function createSelectBoxFragment(name, fn) {
-    var fragment = document.createElement('div');
-    var html = '<select id="'+name+'" name="'+name+'" onchange="'+fn+'"></select>';
-    fragment.innerHTML = html;
+select.createSelectBoxFragment = (name, fn) => {
+    var fragment = document.createElement('div')
+    var html = '<select id="'+name+'" name="'+name+'" onchange="'+fn+'"></select>'
+    fragment.innerHTML = html
     // @todo weird hack
-    return fragment.children[0];
+    return fragment.children[0]
 }
 
 
@@ -32,12 +32,12 @@ select.createSelectBoxFragment = function createSelectBoxFragment(name, fn) {
  * @param  {Function}  template  [description]
  * @return {Node}                [description]
  */
-select.appendOptions = function appendOptions(data, selectbox, template) {
+select.appendOptions = (data, selectbox, template) => {
     for (var i = 0; i < data.length; i++) {
-        selectbox.innerHTML = selectbox.innerHTML + template(data, i);
+        selectbox.innerHTML = selectbox.innerHTML + template(data, i)
     }
 
-    return selectbox;
+    return selectbox
 }
 
 
@@ -46,13 +46,12 @@ select.appendOptions = function appendOptions(data, selectbox, template) {
 
 
 /**
- * [createOptionPlaceholder description]
- * @param  {String}    placeholder [description]
- * @return {Node}                  [description]
+ * 
+ * @param  {String}    placeholder
+ * @return {Node}                  
  */
-select.createOptionPlaceholder = function createOptionPlaceholder(placeholder) {
-    return '<option class="placeholder" value="" placeholder="'+placeholder+'">'+placeholder+'</option>';
-}
+select.createOptionPlaceholder = (placeholder) =>
+    '<option class="placeholder" value="" placeholder="'+placeholder+'">'+placeholder+'</option>'
 
 
 
@@ -61,14 +60,14 @@ select.createOptionPlaceholder = function createOptionPlaceholder(placeholder) {
 
 
 /**
- * [appendOptionPlaceholder description]
- * @param  {Node}      selectbox   [description]
- * @param  {String}    placeholder [description]
- * @return {Node}                  [description]
+ * 
+ * @param  {Node}      selectbox  
+ * @param  {String}    placeholder 
+ * @return {Node}                 
  */  
-select.appendOptionPlaceholder = function appendOptionPlaceholder(selectbox, placeholder) {
-    selectbox.innerHTML = selectbox.innerHTML + select.createOptionPlaceholder(placeholder);
-    return selectbox;
+select.appendOptionPlaceholder = (selectbox, placeholder) => {
+    selectbox.innerHTML = selectbox.innerHTML + select.createOptionPlaceholder(placeholder)
+    return selectbox
 }
 
 
@@ -77,8 +76,7 @@ select.appendOptionPlaceholder = function appendOptionPlaceholder(selectbox, pla
 
 
 /**
- * experimenting with functional versus oo paradigms
- * kind of a weird functional / oo mix
+ *
  */
 function createSelectbox(options) {
     var selectbox = select.createSelectBoxFragment(options.name, options.onchange);
