@@ -1,5 +1,5 @@
 
-// old namespace
+// plain old jacascript object
 var select = {};
 
 
@@ -77,8 +77,7 @@ select.appendOptionPlaceholder = function appendOptionPlaceholder(selectbox, pla
 
 
 /**
- * experimenting with functional versus oo paradigms
- * kind of a weird functional / oo mix
+ *
  */
 function createSelectbox(options) {
     var selectbox = select.createSelectBoxFragment(options.name, options.onchange);
