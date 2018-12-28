@@ -1,9 +1,10 @@
-selectyish
+js-select
+
 - really simple select box chaining
 
 ```
 var selectbox = createSelectBox({
-	name: 'bibliography', // also used for id
+    name: 'bibliography', // also used for id
     data: data, // expects an array of objects
     onchange: 'changeSelect(event)', // expects a function
     placeholder: 'Bibliography', // a blank option value placeholder
@@ -12,33 +13,43 @@ var selectbox = createSelectBox({
 
 ```
 
-#### `onchange` function
+#### Options Documentation
+Detailed information about option properties.
+
+`onchange`  
+Function  
 This function is the listener for the `onchange` event of the select box, and can therefore perform any operation, including creating additional select boxes. This module was originally created to chain selections.  That is when a user selects an option in one select box, and then another selectbox is created based on the first selection.  There is probably a more elegant way to do this.  
 
 ```
-var changeSelect = function(event) {
+var changeSelect = (event) => {
 	var secondSelectBox = createSelectBox({...});
 }
 ```
 
-#### Template
-The template is the attribute name for the html containing the `option` tag.  `selectyish` requires the `template` attribute to be a function that returns a string. 
+---
+
+`template`  
+Function  
+The template is the attribute name for a function that returns html containing the `option` tag. 
 
 ```
-var template = function(data) {
-	return '<option id="" name="" data-attribute="">'+data.name+'</option>';
-}
+var template = (data) => '<option id="" name="" data-attribute="">'+data.name+'</option>'
 
 ```
+---
 
-
-#### Data
-`selectyish` expects an array objects. can easily accomodate data-attributes, etc.
+`data`  
+Array  
+`js-select` expects an array of objects. can easily accomodate data-attributes, etc.
 
 ```
 var data = [
 	{name: 'this'}, { name: 'that'}
 ];
+
+---
+
+
 
 ```
 
