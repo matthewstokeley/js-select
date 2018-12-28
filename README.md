@@ -22,7 +22,7 @@ This function is the listener for the `onchange` event of the select box, and ca
 
 ```
 var changeSelect = (event) => {
-	var secondSelectBox = createSelectBox({...});
+	var secondSelectBox = createSelectBox({ ... });
 }
 ```
 
