@@ -1,9 +1,4 @@
-
-// plain old javascript object
 var select = {};
-
-
-
 
 /**
  * 
@@ -20,11 +15,6 @@ select.createSelectBoxFragment = (name, fn) => {
     return fragment.children[0]
 }
 
-
-
-
-
-
 /**
  * [appendOptions description]
  * @param  {Array}     data      [description]
@@ -40,11 +30,6 @@ select.appendOptions = (data, selectbox, template) => {
     return selectbox
 }
 
-
-
-
-
-
 /**
  * 
  * @param  {String}    placeholder
@@ -52,12 +37,6 @@ select.appendOptions = (data, selectbox, template) => {
  */
 select.createOptionPlaceholder = (placeholder) =>
     '<option class="placeholder" value="" placeholder="'+placeholder+'">'+placeholder+'</option>'
-
-
-
-
-
-
 
 /**
  * 
@@ -69,11 +48,6 @@ select.appendOptionPlaceholder = (selectbox, placeholder) => {
     selectbox.innerHTML = selectbox.innerHTML + select.createOptionPlaceholder(placeholder)
     return selectbox
 }
-
-
-
-
-
 
 /**
  *
