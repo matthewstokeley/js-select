@@ -35,7 +35,7 @@ Function
 The template is the attribute name for a function that returns html containing the `option` tag. 
 
 ```
-const template = (data) => '<option id="" name="" data-attribute="">'+data.name+'</option>'
+const template = (data) => '<option id="" name="" data-attribute="">${data.name}</option>'
 
 ```
 ---
