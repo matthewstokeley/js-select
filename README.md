@@ -1,6 +1,7 @@
 js-select
 
 - really simple select box chaining
+- option templating
 
 ```
 var selectbox = createSelectBox({
