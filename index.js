@@ -17,17 +17,20 @@ select.createSelectBoxFragment = (name, fn) => {
 
 /**
  * [appendOptions description]
+ * @todo test and remove mapping function
  * @param  {Array}     data      [description]
  * @param  {Node}      selectbox [description]
  * @param  {Function}  template  [description]
  * @return {Node}                [description]
  */
 select.appendOptions = (data, selectbox, template) => {
-    for (var i = 0; i < data.length; i++) {
-        selectbox.innerHTML = selectbox.innerHTML + template(data, i)
-    }
+    // for (var i = 0; i < data.length; i++) {
+    //    selectbox.innerHTML = selectbox.innerHTML + template(data, i)
+    // }
+    const fn = (value, i, arr) => template(arr, i)
+    const sb = data.map(fn).reduce((current, prev) => current + prev )
 
-    return selectbox
+    return sb
 }
 
 /**
