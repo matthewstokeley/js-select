@@ -1,4 +1,23 @@
-var select = {};
+// @todo convert into regular prototypal javascript
+
+
+/**
+  *
+  * @param    {Object} 
+  * @returns  {}
+  */
+var Select = function(options) {
+
+    if (!options || typeof options !== 'object') {
+        throw new Error('Invalid Argument Type')
+    }
+
+    var selectbox = this.createSelectBoxFragment(options.name, options.onchange);
+    selectbox = this.appendOptionPlaceholder(selectbox, options.placeholder);
+    selectbox = this.appendOptions(options.data, selectbox, options.template);
+   
+    return selectbox;
+};
 
 /**
  * 
@@ -7,7 +26,7 @@ var select = {};
  * @param  {Function}     fn  
  * @return {Node}              
  */
-select.createSelectBoxFragment = (name, fn) => {
+Select.prototype.createSelectBoxFragment = (name, fn) => {
     var fragment = document.createElement('div')
     var html = '<select id="'+name+'" name="'+name+'" onchange="'+fn+'"></select>'
     fragment.innerHTML = html
@@ -23,7 +42,7 @@ select.createSelectBoxFragment = (name, fn) => {
  * @param  {Function}  template  [description]
  * @return {Node}                [description]
  */
-select.appendOptions = (data, selectbox, template) => {
+Select.prototype.appendOptions = (data, selectbox, template) => {
     // for (var i = 0; i < data.length; i++) {
     //    selectbox.innerHTML = selectbox.innerHTML + template(data, i)
     // }
@@ -38,7 +57,7 @@ select.appendOptions = (data, selectbox, template) => {
  * @param  {String}    placeholder
  * @return {Node}                  
  */
-select.createOptionPlaceholder = (placeholder) =>
+Select.prototype.createOptionPlaceholder = (placeholder) =>
     '<option class="placeholder" value="" placeholder="'+placeholder+'">'+placeholder+'</option>'
 
 /**
@@ -47,17 +66,7 @@ select.createOptionPlaceholder = (placeholder) =>
  * @param  {String}    placeholder 
  * @return {Node}                 
  */  
-select.appendOptionPlaceholder = (selectbox, placeholder) => {
+Select.prototype.appendOptionPlaceholder = (selectbox, placeholder) => {
     selectbox.innerHTML = selectbox.innerHTML + select.createOptionPlaceholder(placeholder)
     return selectbox
-}
-
-/**
- *
- */
-function createSelectbox(options) {
-    var selectbox = select.createSelectBoxFragment(options.name, options.onchange);
-    selectbox = select.appendOptionPlaceholder(selectbox, options.placeholder);
-    selectbox = select.appendOptions(options.data, selectbox, options.template);
-    return selectbox;
 }
