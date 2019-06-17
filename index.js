@@ -35,12 +35,11 @@ Select.prototype.createSelectBoxFragment = (name, fn) => {
 }
 
 /**
- * [appendOptions description]
  * @todo test and remove mapping function
- * @param  {Array}     data      [description]
- * @param  {Node}      selectbox [description]
- * @param  {Function}  template  [description]
- * @return {Node}                [description]
+ * @param  {Array}     data
+ * @param  {Node}      selectbox
+ * @param  {Function}  template
+ * @return {Node} 
  */
 Select.prototype.appendOptions = (data, selectbox, template) => {
     // for (var i = 0; i < data.length; i++) {
