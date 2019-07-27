@@ -28,8 +28,7 @@ var Select = function(options) {
  */
 Select.prototype.createSelectBoxFragment = (name, fn) => {
     var fragment = document.createElement('div')
-    var html = '<select id="'+name+'" name="'+name+'" onchange="'+fn+'"></select>'
-    fragment.innerHTML = html
+    fragment.innerHTML = `<select id="#{$name}" name="#{$name}" onchange="#{$fn}"></select>`
     // @todo weird hack
     return fragment.children[0]
 }
@@ -42,13 +41,7 @@ Select.prototype.createSelectBoxFragment = (name, fn) => {
  * @return {Node} 
  */
 Select.prototype.appendOptions = (data, selectbox, template) => {
-    // for (var i = 0; i < data.length; i++) {
-    //    selectbox.innerHTML = selectbox.innerHTML + template(data, i)
-    // }
-    const fn = (value, i, arr) => template(arr, i)
-    const sb = data.map(fn).reduce((current, prev) => current + prev )
-
-    return sb
+     return data.map((value, i, arr) => template(arr, i)).reduce((current, prev) => current + prev )
 }
 
 /**
