@@ -1,6 +1,3 @@
-// @todo convert into regular prototypal javascript
-
-
 /**
   *
   * @param    {Object} 
@@ -11,11 +8,14 @@ var Select = function(options) {
     if (!options || typeof options !== 'object') {
         throw new Error('Invalid Argument Type')
     }
-
-    var selectbox = this.createSelectBoxFragment(options.name, options.onchange);
-    selectbox = this.appendOptionPlaceholder(selectbox, options.placeholder);
-    selectbox = this.appendOptions(options.data, selectbox, options.template);
-   
+ 
+    let selectbox = this.createSelectBoxFragment(
+     {
+        name: options.name,
+        fn: option.fn
+     }
+    )
+ 
     return selectbox;
 };
 
