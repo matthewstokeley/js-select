@@ -28,7 +28,7 @@ var Select = function(options) {
  */
 Select.prototype.createSelectBoxFragment = (name, fn) => {
     var fragment = document.createElement('div')
-    fragment.innerHTML = `<select id="#{$name}" name="#{$name}" onchange="#{$fn}"></select>`
+    fragment.innerHTML = `<select id="`#{$name}`" name="`#{$name}`" onchange="`#{$fn}`"></select>`
     // @todo weird hack
     return fragment.children[0]
 }
